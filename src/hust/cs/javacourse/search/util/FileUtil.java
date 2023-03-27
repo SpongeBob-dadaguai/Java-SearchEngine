@@ -1,6 +1,7 @@
 package hust.cs.javacourse.search.util;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,17 +21,14 @@ public class FileUtil {
         BufferedReader reader = null;
         try{
             StringBuffer buf = new StringBuffer();
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(filePath))));
+            reader = new BufferedReader(new InputStreamReader(Files.newInputStream(new File(filePath).toPath())));
             while( (s = reader.readLine()) != null){
                 buf.append(s).append("\n"); //reader.readLine())返回的字符串会去掉换行符，因此这里要加上
             }
             s = buf.toString().trim(); //去掉最后一个多的换行符
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             if(reader != null) {
                 try {
                     reader.close();

@@ -26,7 +26,7 @@ public class DocumentBuilder extends AbstractDocumentBuilder {
      * @return Document对象
      */
     @Override
-    public AbstractDocument build(int docId, String docPath, AbstractTermTupleStream termTupleStream) {
+    public AbstractDocument build(int docId, String docPath, AbstractTermTupleStream termTupleStream) throws IOException {
         AbstractDocument document = new Document(docId, docPath);
         AbstractTermTuple tuple;
         while ((tuple = termTupleStream.next()) != null) {

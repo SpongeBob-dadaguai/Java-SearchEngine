@@ -3,6 +3,7 @@ package hust.cs.javacourse.search.index.impl;
 import hust.cs.javacourse.search.index.AbstractPosting;
 import hust.cs.javacourse.search.index.AbstractPostingList;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Comparator;
@@ -152,11 +153,27 @@ public class PostingList extends AbstractPostingList {
 
     @Override
     public void writeObject(ObjectOutputStream out) {
-
+        try {
+            out.writeObject(this.size());
+            for(AbstractPosting posting : this.list) {
+                posting.writeObject(out);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void readObject(ObjectInputStream in) {
-
+        try {
+            int size = (Integer)in.readObject();
+            for(int i = 0; i < size; i++) {
+                AbstractPosting posting = new Posting();
+                posting.readObject(in);
+                this.add(posting);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,13 +1,18 @@
 package hust.cs.javacourse.search.index.impl;
 
 import hust.cs.javacourse.search.index.AbstractPosting;
+import jdk.internal.org.objectweb.asm.tree.InnerClassNode;
 
+import java.awt.print.PrinterGraphics;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Collections;
 import java.util.List;
 
 public class Posting extends AbstractPosting {
+    public Posting() {}
+
     public Posting(int docId, int freq, List<Integer> positions) {
         this.docId = docId;
         this.freq = freq;
@@ -114,13 +119,39 @@ public class Posting extends AbstractPosting {
         Collections.sort(this.positions);  //默认升序排序
     }
 
+    /**
+     * 写入文件
+     * @param out :输出流对象
+     */
     @Override
     public void writeObject(ObjectOutputStream out) {
-
+        try {
+            out.writeObject(this.docId);
+            out.writeObject(this.freq);
+            out.writeObject(this.positions.size());
+            for (Integer pos : positions) {
+                out.writeObject(pos);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    /**
+     * 从文件读取
+     * @param in ：输入流对象
+     */
     @Override
     public void readObject(ObjectInputStream in) {
-
+        try {
+            this.docId = (Integer)in.readObject();
+            this.freq = (Integer)in.readObject();
+            int size = (Integer)in.readObject();
+            for(int i = 0; i < size; i++) {
+                this.positions.add((Integer) in.readObject());
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

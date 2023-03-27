@@ -38,4 +38,17 @@ public class StopWords {
                     "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which", "while", "whither", "who",
                     "whoever", "whole", "whom", "whose", "why", "will", "with", "within", "without", "would", "yet", "you",
                     "your", "yours", "yourself", "yourselves","s","t"};
+
+    /**
+     * 判断单词是否为禁用词
+     * @return true or false
+     */
+    public boolean contains(String term) {
+        for(String word : STOP_WORDS) {
+            if(word.equals(term)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

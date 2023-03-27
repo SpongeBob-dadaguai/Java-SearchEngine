@@ -2,9 +2,8 @@ package hust.cs.javacourse.search.index.impl;
 
 import hust.cs.javacourse.search.index.*;
 
-import java.io.File;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 
 /**
@@ -77,7 +76,12 @@ public class Index extends AbstractIndex {
      */
     @Override
     public void load(File file) {
-
+        if(file == null) return;
+        try {
+            readObject(new ObjectInputStream(Files.newInputStream(file.toPath())));
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -88,7 +92,11 @@ public class Index extends AbstractIndex {
      */
     @Override
     public void save(File file) {
-
+        try {
+            writeObject(new ObjectOutputStream(Files.newOutputStream(file.toPath())));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -150,7 +158,22 @@ public class Index extends AbstractIndex {
      */
     @Override
     public void writeObject(ObjectOutputStream out) {
-
+        try {
+            Set<Integer> docIds = this.docIdToDocPathMapping.keySet();
+            out.writeObject(docIds.size());
+            for(Integer docId : docIds) {
+                out.writeObject(docId);
+                out.writeObject(this.getDocName(docId));
+            }
+            Set<AbstractTerm> terms = this.getDictionary();
+            out.writeObject(terms.size());
+            for(AbstractTerm term : terms) {
+                out.writeObject(term);
+                out.writeObject(this.search(term));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -160,6 +183,21 @@ public class Index extends AbstractIndex {
      */
     @Override
     public void readObject(ObjectInputStream in) {
-
+        try {
+            int size = (Integer)in.readObject();
+            for(int i = 0; i < size; i++) {
+                int docId = (Integer)in.readObject();
+                String path = (String)in.readObject();
+                this.docIdToDocPathMapping.put(docId, path);
+            }
+            size = (Integer)in.readObject();
+            for(int i = 0;i <size; i++) {
+                AbstractTerm term = (AbstractTerm) in.readObject();
+                AbstractPostingList postingList = (AbstractPostingList) in.readObject();
+                this.termToPostingListMapping.put(term, postingList);
+            }
+        } catch(IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

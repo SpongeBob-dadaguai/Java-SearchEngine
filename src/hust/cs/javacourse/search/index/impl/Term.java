@@ -2,11 +2,18 @@ package hust.cs.javacourse.search.index.impl;
 
 import hust.cs.javacourse.search.index.AbstractTerm;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Objects;
 
 public class Term extends AbstractTerm {
+    /**
+     * 构造函数
+     */
+    public Term(String content) {
+        this.content = content;
+    }
     /**
      * 判断两个Term内容是否相同
      * @param obj ：要比较的另外一个Term
@@ -60,11 +67,19 @@ public class Term extends AbstractTerm {
 
     @Override
     public void writeObject(ObjectOutputStream out) {
-
+        try {
+            out.writeObject(this.content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void readObject(ObjectInputStream in) {
-
+        try {
+            this.content = (String)in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
