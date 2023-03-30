@@ -7,13 +7,13 @@ import hust.cs.javacourse.search.util.StopWords;
 
 import java.io.IOException;
 
-public class StopWordsTermTupleFilter extends AbstractTermTupleFilter {
+public class StopWordTermTupleFilter extends AbstractTermTupleFilter {
     /**
      * 构造函数
      *
      * @param input ：Filter的输入，类型为AbstractTermTupleStream
      */
-    public StopWordsTermTupleFilter(AbstractTermTupleStream input) {
+    public StopWordTermTupleFilter(AbstractTermTupleStream input) {
         super(input);
     }
 

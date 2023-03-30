@@ -12,7 +12,7 @@ public class Term extends AbstractTerm {
      * 构造函数
      */
     public Term(String content) {
-        this.content = content;
+        super(content);
     }
     /**
      * 判断两个Term内容是否相同

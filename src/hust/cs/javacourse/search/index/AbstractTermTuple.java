@@ -13,6 +13,8 @@ import java.util.List;
  *
  */
 public abstract class AbstractTermTuple {
+    public AbstractTermTuple() {}
+
     /**
      * 单词
      */

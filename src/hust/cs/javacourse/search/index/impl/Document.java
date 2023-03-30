@@ -16,14 +16,11 @@ public class Document extends AbstractDocument {
 
     }
     public Document(int docId, String docPath) {
-        this.docId = docId;
-        this.docPath = docPath;
+        super(docId, docPath);
     }
 
     public Document(int docId, String docPath, List<AbstractTermTuple> tuples) {
-        this.docId = docId;
-        this.docPath = docPath;
-        this.tuples = tuples;
+        super(docId, docPath, tuples);
     }
 
     /**

@@ -10,7 +10,9 @@ public class TermTuple extends AbstractTermTuple {
     /**
      * 无参构造函数
      */
-    public TermTuple() {}
+    public TermTuple() {
+        super();
+    }
     /**
      * 判断两个三元组内容是否相同
      * @param obj ：要比较的另外一个三元组

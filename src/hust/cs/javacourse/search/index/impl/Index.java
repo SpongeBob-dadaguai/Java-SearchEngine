@@ -47,7 +47,8 @@ public class Index extends AbstractIndex {
                 int index = postingList.indexOf(docId);
                 //index中不存在这个文档对应的posting
                 if(index == -1) {
-                    List<Integer> positions = new ArrayList<>(tuple.curPos);
+                    List<Integer> positions = new ArrayList<>();
+                    positions.add(tuple.curPos);
                     AbstractPosting posting = new Posting(docId, tuple.freq, positions);
                     postingList.add(posting);
                 }
@@ -61,9 +62,12 @@ public class Index extends AbstractIndex {
             //集合中不存在这个word
             else {
                 AbstractPostingList postingList = new PostingList();
-                AbstractPosting posting = new Posting(document.getDocId(), tuple.freq, new ArrayList<>(tuple.curPos));
+                List positions = new ArrayList<>();
+                positions.add(tuple.curPos);
+                AbstractPosting posting = new Posting(document.getDocId(), tuple.freq, positions);
                 postingList.add(posting);
                 this.termToPostingListMapping.put(tuple.term, postingList);
+                keys.add(tuple.term);
             }
         }
     }

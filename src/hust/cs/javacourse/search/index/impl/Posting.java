@@ -14,9 +14,7 @@ public class Posting extends AbstractPosting {
     public Posting() {}
 
     public Posting(int docId, int freq, List<Integer> positions) {
-        this.docId = docId;
-        this.freq = freq;
-        this.positions = positions;
+        super(docId, freq, positions);
     }
 
     /**
@@ -43,6 +41,7 @@ public class Posting extends AbstractPosting {
         ret.append("docId: ").append(getDocId()).append(",");
         ret.append("freq: ").append(getFreq()).append(",");
         ret.append("positions: ");
+//        System.out.println(positions);
         for (int pos: positions) ret.append(pos).append(" ");
         return ret.toString();
     }
