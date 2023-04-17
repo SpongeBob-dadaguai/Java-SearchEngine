@@ -75,7 +75,7 @@ public class Document extends AbstractDocument {
     @Override
     public void addTuple(AbstractTermTuple tuple) {
         if(this.contains(tuple)) {
-            System.out.println("列表中已存在该三元组，不能重复添加");
+//            System.out.println("列表中已存在该三元组，不能重复添加");
             return;
         }
         (this.tuples).add(tuple);
@@ -124,6 +124,10 @@ public class Document extends AbstractDocument {
      */
     @Override
     public String toString() {
-        return null;
+        StringBuilder string = new StringBuilder();
+        string.append("docId: ").append(getDocId()).append('\n');
+        string.append("docPath； ").append(getDocPath()).append('\n');
+        string.append("tuples: ").append(getTuples().toString());
+        return string.toString();
     }
 }

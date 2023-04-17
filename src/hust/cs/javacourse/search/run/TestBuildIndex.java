@@ -14,29 +14,30 @@ import java.io.IOException;
  */
 public class TestBuildIndex {
     /**
-     *  索引构建程序入口
+     * 索引构建程序入口
+     *
      * @param args : 命令行参数
      */
     public static void main(String[] args) throws IOException {
-        AbstractDocumentBuilder documentBuilder = new DocumentBuilder();
-        AbstractIndexBuilder indexBuilder = new IndexBuilder(documentBuilder);
-        String rootDir = Config.DOC_DIR;
-//        System.out.println("rootDir: " + rootDir);
-        System.out.println("Start to build index ...");
+        AbstractDocumentBuilder documentBuilder = new DocumentBuilder();//构建文件夹路径集合
+        AbstractIndexBuilder indexBuilder = new IndexBuilder(documentBuilder);//构建index集合
+        String rootDir = Config.DOC_DIR + "text/";
+        System.out.println("Start build index ...");
         AbstractIndex index = indexBuilder.buildIndex(rootDir);
         index.optimize();
         System.out.println(index);
         //控制台打印 index 的内容
         //测试保存到文件
-        String indexFile = Config.INDEX_DIR + "index.data";
+        String indexFile = Config.INDEX_DIR + "index.dat";
         index.save(new File(indexFile));
-        //((Index) index).writePlainText(new File(Config.INDEX_DIR + "index.txt"));
+        ((Index)index).writePlainText(new File(Config.INDEX_DIR + "index.txt"));
         //索引保存到文件
         //测试从文件读取
         AbstractIndex index2 = new Index(); //创建一个空的 index
         index2.load(new File(indexFile));
         //从文件加载对象的内容
         System.out.println("\n-------------------\n");
-        System.out.println(index2);
+        System.out.println(index2.toString());
+        //控制台打印 index2 的内容
     }
 }

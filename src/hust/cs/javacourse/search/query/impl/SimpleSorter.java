@@ -33,6 +33,6 @@ public class SimpleSorter implements hust.cs.javacourse.search.query.Sort {
                 ans += hit.getTermPostingMapping().get(term).getFreq();
             }
         }
-        return ans;
+        return -ans;
     }
 }

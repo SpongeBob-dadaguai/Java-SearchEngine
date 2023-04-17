@@ -11,6 +11,7 @@ public class Term extends AbstractTerm {
     /**
      * 构造函数
      */
+    public Term() {}
     public Term(String content) {
         super(content);
     }

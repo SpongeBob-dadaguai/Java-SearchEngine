@@ -20,12 +20,14 @@ public class IndexBuilder extends AbstractIndexBuilder {
     public AbstractIndex buildIndex(String rootDirectory) throws IOException {
         AbstractIndex index = new Index();
         List<String> filePaths = FileUtil.list(rootDirectory);//构建文件夹索引
-        Collections.reverse(filePaths);//顺序排列
+        Collections.sort(filePaths);
+//        Collections.reverse(filePaths);
+//        System.out.println(filePaths);
         AbstractDocument document = null;
         for (String docPath : filePaths) {
             document = docBuilder.build(docId, docPath, new File(docPath));
-            index.addDocument(document);//将文件夹中的termtuple倒序构建索引
-            docId += 1;
+            index.addDocument(document);//将文件夹中的termTuple倒序构建索引
+            docId = docId + 1;
         }
         return index;
     }

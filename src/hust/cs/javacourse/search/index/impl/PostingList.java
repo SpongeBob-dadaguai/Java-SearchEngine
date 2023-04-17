@@ -16,10 +16,11 @@ public class PostingList extends AbstractPostingList {
      */
     @Override
     public void add(AbstractPosting posting) {
-        if(list.contains(posting)) {
-            System.out.println("列表中已存在该posting，不能重复添加");
+        // 不能有重复内容的posting
+        if (contains(posting)) {
+            return;
         }
-        list.add(posting); //需不需要再添加之后sort一下？
+        list.add(posting);
     }
 
     /**
@@ -42,10 +43,9 @@ public class PostingList extends AbstractPostingList {
      */
     @Override
     public void add(List<AbstractPosting> postings) {
-        for (AbstractPosting posting : postings) {
-            if(!list.contains(posting)) {
-                list.add(posting);
-            }
+        // 直接调用另一个add函数
+        for (AbstractPosting abstractPosting : postings) {
+            add(abstractPosting);
         }
     }
 
@@ -91,12 +91,7 @@ public class PostingList extends AbstractPostingList {
      */
     @Override
     public boolean contains(AbstractPosting posting) {
-        for(AbstractPosting ps : list) {
-            if(ps.equals(posting)) {
-                return true;
-            }
-        }
-        return false;
+        return list.contains(posting);
     }
 
     /**

@@ -5,12 +5,12 @@ import hust.cs.javacourse.search.index.AbstractDocumentBuilder;
 import hust.cs.javacourse.search.index.AbstractTermTuple;
 import hust.cs.javacourse.search.parse.AbstractTermTupleScanner;
 import hust.cs.javacourse.search.parse.AbstractTermTupleStream;
+import hust.cs.javacourse.search.parse.impl.LengthTermTupleFilter;
+import hust.cs.javacourse.search.parse.impl.PatternTermTupleFilter;
+import hust.cs.javacourse.search.parse.impl.StopWordTermTupleFilter;
 import hust.cs.javacourse.search.parse.impl.TermTupleScanner;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.file.Files;
 
 /**
@@ -28,9 +28,10 @@ public class DocumentBuilder extends AbstractDocumentBuilder {
     @Override
     public AbstractDocument build(int docId, String docPath, AbstractTermTupleStream termTupleStream) throws IOException {
         AbstractDocument document = new Document(docId, docPath);
-        AbstractTermTuple tuple;
-        while ((tuple = termTupleStream.next()) != null) {
+        AbstractTermTuple tuple = termTupleStream.next();
+        while(tuple != null) {
             document.addTuple(tuple);
+            tuple = termTupleStream.next();
         }
         termTupleStream.close();
         return document;
@@ -47,10 +48,20 @@ public class DocumentBuilder extends AbstractDocumentBuilder {
      */
     @Override
     public AbstractDocument build(int docId, String docPath, File file) throws IOException {
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(Files.newInputStream(file.toPath()))
-        );
-        AbstractTermTupleScanner scanner = new TermTupleScanner(reader);
-        return build(docId, docPath, scanner);
+        AbstractDocument document = null;
+        AbstractTermTupleStream ts = null;
+        try {
+            ts = new TermTupleScanner(new BufferedReader(new InputStreamReader(new
+                    FileInputStream(file))));
+            ts = new StopWordTermTupleFilter(ts); //再加上停用词过滤器
+            ts = new PatternTermTupleFilter(ts); //再加上正则表达式过滤器
+            ts = new LengthTermTupleFilter(ts); //再加上单词长度过滤器
+            document = build(docId, docPath, ts);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            ts.close();
+        }
+        return document;
     }
 }
