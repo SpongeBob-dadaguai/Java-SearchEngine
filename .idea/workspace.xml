@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4213cc7e-886d-4d43-8cf7-3b6d0767e64d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1YDYqyNZghUwgeTFTl7oiXVcjAT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/liuxinyi/Documents/JavaExperiment/SearchEngineForStudent",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/text/text" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="hust.cs.javacourse.search.index.impl" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.TestSearchIndex">
+    <configuration name="TestBuildIndex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hust.cs.javacourse.search.run.TestBuildIndex" />
+      <module name="SearchEngineForStudent" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hust.cs.javacourse.search.run.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSearchIndex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hust.cs.javacourse.search.run.TestSearchIndex" />
+      <module name="SearchEngineForStudent" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hust.cs.javacourse.search.run.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestSearchIndex" />
+        <item itemvalue="Application.TestBuildIndex" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4213cc7e-886d-4d43-8cf7-3b6d0767e64d" name="Default Changelist" comment="" />
+      <created>1582478826204</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582478826204</updated>
+      <workItem from="1582478829635" duration="2317000" />
+      <workItem from="1582540609178" duration="21794000" />
+      <workItem from="1582605823875" duration="41000" />
+      <workItem from="1617119487103" duration="32000" />
+      <workItem from="1617281883510" duration="979000" />
+      <workItem from="1620728052423" duration="1677000" />
+      <workItem from="1679312409275" duration="30000" />
+      <workItem from="1679312448257" duration="299000" />
+      <workItem from="1679313200623" duration="6680000" />
+      <workItem from="1679324951048" duration="4686000" />
+      <workItem from="1679407720281" duration="947000" />
+      <workItem from="1679464979568" duration="5559000" />
+      <workItem from="1679471575508" duration="2693000" />
+      <workItem from="1679474309366" duration="722000" />
+      <workItem from="1679499480570" duration="1553000" />
+      <workItem from="1679817407860" duration="3000" />
+      <workItem from="1679817435955" duration="17000" />
+      <workItem from="1679846530178" duration="43000" />
+      <workItem from="1679846578804" duration="640000" />
+      <workItem from="1679848760646" duration="17000" />
+      <workItem from="1679898031120" duration="7000" />
+      <workItem from="1679913006194" duration="4329000" />
+      <workItem from="1679919193028" duration="5446000" />
+      <workItem from="1679925783677" duration="888000" />
+      <workItem from="1679929412341" duration="9000" />
+      <workItem from="1680069650699" duration="5685000" />
+      <workItem from="1680105148291" duration="15000" />
+      <workItem from="1680162753954" duration="1778000" />
+      <workItem from="1680164824690" duration="15000" />
+      <workItem from="1680165362050" duration="485000" />
+      <workItem from="1680189782898" duration="998000" />
+      <workItem from="1680449708094" duration="654000" />
+      <workItem from="1681126568697" duration="24000" />
+      <workItem from="1681128414383" duration="8369000" />
+      <workItem from="1681280098321" duration="75000" />
+      <workItem from="1681280553951" duration="4094000" />
+      <workItem from="1681308663975" duration="231000" />
+      <workItem from="1681733095837" duration="8080000" />
+      <workItem from="1681741762055" duration="683000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
